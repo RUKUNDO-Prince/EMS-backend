@@ -8,6 +8,7 @@ public class Main {
     public static void main (String[] args) {
         long principle = 0;
         float rate = 0;
+        int period = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Mortgage Calculator!");
 //        CHECKING THE PRINCIPLE
@@ -32,8 +33,17 @@ public class Main {
                 break;
             }
         }
-        System.out.print("Period(years): ");
-        int period = scanner.nextInt();
+//        CHECKING THE PERIOD
+        while (true) {
+            System.out.print("Period (Years): ");
+            int inputValue = scanner.nextInt();
+            if (inputValue < 1 || inputValue > 30) {
+                System.out.println("Enter a value between 1 and 30");
+            } else {
+                period = inputValue;
+                break;
+            }
+        }
         float r = (rate / 12)/100;
         int n = period * 12;
         float mortgage = (float)(principle * ((r * Math.pow(1 + r, n)) / (Math.pow(1 + r, n) - 1)));
