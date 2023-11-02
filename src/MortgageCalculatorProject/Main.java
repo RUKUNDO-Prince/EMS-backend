@@ -7,15 +7,10 @@ import java.lang.Math;
 public class Main {
     public static void main (String[] args) {
         long principle = 0;
+        float rate = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Welcome to the Mortgage Calculator!");
-//        System.out.print("Principal ($1K - $1M): ");
-//        long inputValue = scanner.nextLong();
-//        if (inputValue < 1000 || inputValue > 1000000) {
-//            System.out.println("Enter a number between 1,000 and 1,000, 000");
-//        } else {
-//            principle = inputValue;
-//        }
+//        CHECKING THE PRINCIPLE
         while (true) {
             System.out.print("Principal ($1K - $1M): ");
             long inputValue = scanner.nextLong();
@@ -23,12 +18,20 @@ public class Main {
                 System.out.println("Enter a number between 1,000 and 1,000,000");
             } else {
                 principle = inputValue;
-                break; // Exit the loop if a valid value is provided
+                break;
             }
         }
-        System.out.println(principle);
-        System.out.print("Annual interest rate: ");
-        float rate = scanner.nextFloat();
+//        CHECKING THE INTEREST RATE
+        while (true) {
+            System.out.print("Annual interest rate: ");
+            float inputValue = scanner.nextFloat();
+            if (inputValue < 0 || inputValue > 30) {
+                System.out.println("Enter a value greater than 0 and less than or equal to 30");
+            } else {
+                rate = inputValue;
+                break;
+            }
+        }
         System.out.print("Period(years): ");
         int period = scanner.nextInt();
         float r = (rate / 12)/100;
