@@ -2,9 +2,12 @@ package Methods;
 
 public class Methods {
     public static void main (String[] args) {
-        greetUser("Prince", "RUKUNDO");
+//        greetUser("Prince", "RUKUNDO");
+        String message = greetUser("Prince", "RUKUNDO");
+        System.out.println(message);
     }
-    public static void greetUser (String firstName, String lastName) {
-        System.out.println("Hello " + firstName + " " + lastName);
+    public static String greetUser (String firstName, String lastName) {
+//        System.out.println("Hello " + firstName + " " + lastName);
+        return "Hello " + firstName + " " + lastName;
     }
 }
