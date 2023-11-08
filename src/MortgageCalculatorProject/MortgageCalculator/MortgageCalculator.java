@@ -1,6 +1,7 @@
 package MortgageCalculatorProject.MortgageCalculator;
 
 import java.text.NumberFormat;
+import java.util.Scanner;
 
 public class MortgageCalculator {
 
@@ -48,7 +49,7 @@ public class MortgageCalculator {
             double interest = (balance * getMonthlyInterest());
             double principalPayment = calculateMortgage() - interest;
 
-            System.out.println(month + "\t" + currency.format(calculateMortgage()) + "\t"
+            System.out.println(month + "." + "\t" + currency.format(calculateMortgage()) + "\t"
                     + currency.format(principalPayment) + "\t" + currency.format(interest) + "\t" + currency.format(balance));
         }
     }
@@ -62,7 +63,19 @@ public class MortgageCalculator {
     }
 
     public static void main(String[] args) {
-        MortgageCalculator calculator = new MortgageCalculator(100000, 5.5f, 1);
+        int principal;
+        float annualInterest;
+        int years;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the principal: ");
+        principal = scanner.nextInt();
+        System.out.print("Enter the annual interest: ");
+        annualInterest = scanner.nextFloat();
+        System.out.print("Enter the period (Years): ");
+        years = scanner.nextInt();
+
+        MortgageCalculator calculator = new MortgageCalculator(principal, annualInterest, years);
         double mortgage = calculator.calculateMortgage();
         System.out.println("Monthly Mortgage Payment: " + NumberFormat.getCurrencyInstance().format(mortgage));
 
