@@ -1,17 +1,43 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+//// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+//// then press Enter. You can now see whitespace characters in your code.
+//public class Main {
+//    public static void main(String[] args) {
+//        // Press Alt+Enter with your caret at the highlighted text to see how
+//        // IntelliJ IDEA suggests fixing it.
+//        System.out.println("Hello and welcome!");
+//
+//        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
+//        for (int i = 1; i <= 5; i++) {
+//
+//            // Press Shift+F9 to start debugging your code. We have set one breakpoint
+//            // for you, but you can always add more by pressing Ctrl+F8.
+//            System.out.println("i = " + i);
+//        }
+//    }
+//}
+
+
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class Main {
+    
     public static void main(String[] args) {
-        // Press Alt+Enter with your caret at the highlighted text to see how
-        // IntelliJ IDEA suggests fixing it.
-        System.out.println("Hello and welcome!");
+        String inputFile = "input.txt";
+        String outputFile = "output.txt";
 
-        // Press Shift+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
+        try (FileReader reader = new FileReader(inputFile);
+             FileWriter writer = new FileWriter(outputFile)) {
 
-            // Press Shift+F9 to start debugging your code. We have set one breakpoint
-            // for you, but you can always add more by pressing Ctrl+F8.
-            System.out.println("i = " + i);
+            int character;
+            while ((character = reader.read()) != -1) {
+                writer.write(character);
+            }
+
+            System.out.println("File copied successfully.");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 }
