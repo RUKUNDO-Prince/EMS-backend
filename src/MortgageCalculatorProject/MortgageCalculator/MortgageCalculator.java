@@ -68,8 +68,14 @@ public class MortgageCalculator {
         int years;
 
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the principal: ");
-        principal = scanner.nextInt();
+        do {
+            System.out.print("Enter the principal: ");
+            principal = scanner.nextInt();
+
+            if (principal <= 1000 || principal >= 1000000) {
+                System.out.println("Principal should be between 1000 and 1000000.");
+            }
+        } while (principal < 1000 || principal > 1000000);
         System.out.print("Enter the annual interest: ");
         annualInterest = scanner.nextFloat();
         System.out.print("Enter the period (Years): ");
