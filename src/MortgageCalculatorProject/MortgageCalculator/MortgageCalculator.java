@@ -72,7 +72,7 @@ public class MortgageCalculator {
             System.out.print("Enter the principal: ");
             principal = scanner.nextInt();
 
-            if (principal <= 1000 || principal >= 1000000) {
+            if (principal < 1000 || principal > 1000000) {
                 System.out.println("Principal should be between 1000 and 1000000.");
             }
         } while (principal < 1000 || principal > 1000000);
@@ -80,10 +80,10 @@ public class MortgageCalculator {
             System.out.print("Enter the annual interest: ");
             annualInterest = scanner.nextFloat();
 
-            if (annualInterest <= 0 || annualInterest >= 30) {
-                System.out.println("Principal should be between 1000 and 1000000.");
+            if (annualInterest < 0 || annualInterest > 30) {
+                System.out.println("Annual interest should be greater than 0 and less than 30");
             }
-        } while (principal < 1000 || principal > 1000000);
+        } while (annualInterest < 0 || annualInterest > 30);
         System.out.print("Enter the period (Years): ");
         years = scanner.nextInt();
 
