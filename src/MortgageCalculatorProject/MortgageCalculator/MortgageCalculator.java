@@ -41,7 +41,7 @@ public class MortgageCalculator {
     public void printPaymentSchedule() {
         NumberFormat currency = NumberFormat.getCurrencyInstance();
         System.out.println("Payment Schedule:");
-        System.out.println("Month\tPayment\tPrincipal\tInterest\tBalance");
+        System.out.println("Month\tPayment\t  Principal\tInterest\tBalance");
 
         int totalNumberOfPayments = getTotalNumberOfPayments();
         for (int month = 1; month <= totalNumberOfPayments; month++) {
@@ -49,8 +49,8 @@ public class MortgageCalculator {
             double interest = (balance * getMonthlyInterest());
             double principalPayment = calculateMortgage() - interest;
 
-            System.out.println(month + "." + "\t" + currency.format(calculateMortgage()) + "\t"
-                    + currency.format(principalPayment) + "\t" + currency.format(interest) + "\t" + currency.format(balance));
+            System.out.println(month + "." + "\t" + "    " + currency.format(calculateMortgage()) + "\t"
+                    + "  " + currency.format(principalPayment) + "\t" + " " + currency.format(interest) + "\t" + " " + currency.format(balance));
         }
     }
 
